@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Preserve real files from public/ first, then let React handle extensionless routes.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

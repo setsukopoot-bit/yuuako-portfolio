@@ -1,0 +1,457 @@
+.ipModule {
+  --ip-cream: #fffaf2;
+  --ip-cream-deep: #f7ead8;
+  --ip-coffee: #5b2f18;
+  --ip-muted: #936e55;
+  --ip-orange: #e65b20;
+  --ip-gold: #e8a42e;
+  --ip-line: rgba(91, 47, 24, 0.14);
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5.5rem);
+  color: var(--ip-coffee);
+}
+
+.moduleIntro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.moduleIntro p {
+  max-width: 760px;
+  margin: 0.85rem 0 0;
+  color: var(--ip-muted);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.moduleKicker,
+.moduleIndex,
+.bentoCopy > span,
+.roleStatement > span,
+.paletteBlock > span,
+.ruleGrid article > span,
+.experienceConclusion > span {
+  color: var(--ip-orange);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.moduleIndex {
+  color: rgba(91, 47, 24, 0.42);
+  white-space: nowrap;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 0.82fr 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.8rem);
+}
+
+.assetFigure {
+  margin: 0;
+}
+
+.characterCard {
+  display: grid;
+  align-content: space-between;
+  overflow: hidden;
+  border: 1px solid var(--ip-line);
+  border-radius: 1.25rem;
+  background: var(--ip-cream);
+}
+
+.characterCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.characterCard figcaption,
+.systemWide figcaption,
+.stickerWide figcaption {
+  padding: 0.9rem 1.1rem 1.1rem;
+  color: var(--ip-muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.characterCardFeatured {
+  background: #f1e3d1;
+}
+
+.profileAside {
+  display: grid;
+  align-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.4rem, 3vw, 3rem);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #fffaf2, #f4dfc1);
+}
+
+.roleStatement h3 {
+  margin: 0.9rem 0 0;
+  font-size: clamp(1.8rem, 3.4vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+}
+
+.roleStatement p {
+  max-width: 25rem;
+  margin: 1.4rem 0 0;
+  color: var(--ip-muted);
+  line-height: 1.75;
+}
+
+.profileFacts {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.profileFacts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--ip-line);
+}
+
+.profileFacts dt {
+  color: var(--ip-muted);
+}
+
+.profileFacts dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.paletteBlock {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.paletteGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.paletteGrid > div {
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ip-muted);
+  font-size: 0.73rem;
+}
+
+.paletteGrid i {
+  display: block;
+  width: 1.2rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(91, 47, 24, 0.18);
+  border-radius: 50%;
+}
+
+.moduleQuote,
+.experienceConclusion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.4rem, 2.5vw, 2.25rem) 0;
+  border-top: 1px solid var(--ip-line);
+  border-bottom: 1px solid var(--ip-line);
+}
+
+.moduleQuote > span,
+.experienceConclusion > span {
+  flex: 0 0 auto;
+}
+
+.moduleQuote p,
+.experienceConclusion p {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(1.3rem, 2.3vw, 2.2rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.systemWide,
+.stickerWide {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--ip-cream);
+}
+
+.systemWide img,
+.stickerWide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.stickerSystem {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.stickerGroup h3 {
+  margin: 0 0 0.55rem;
+  color: var(--ip-coffee);
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.stickerGroup .stickerWide {
+  overflow: visible;
+  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  box-shadow: 0 14px 36px rgba(91, 47, 24, 0.06);
+}
+
+.stickerGroup .stickerWide figcaption {
+  padding: 0.4rem 1.1rem 0.75rem;
+}
+
+.ruleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--ip-line);
+  border-radius: 1.25rem;
+  background: var(--ip-line);
+}
+
+.ruleGrid article {
+  min-height: 230px;
+  padding: clamp(1.4rem, 3vw, 2.8rem);
+  background: var(--ip-cream);
+}
+
+.ruleGrid h3 {
+  margin: 1.4rem 0 0;
+  font-size: clamp(1.3rem, 2.3vw, 2.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.ruleGrid p {
+  max-width: 34rem;
+  margin: 1.2rem 0 0;
+  color: var(--ip-muted);
+  line-height: 1.75;
+}
+
+.expressionLegend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) 1.2fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expressionLegend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legendDot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #718d5e;
+}
+
+.legendDotOrange {
+  background: var(--ip-orange);
+}
+
+.expressionLegend strong,
+.expressionLegend small {
+  display: block;
+}
+
+.expressionLegend strong {
+  font-size: 0.9rem;
+}
+
+.expressionLegend small {
+  margin-top: 0.25rem;
+  color: var(--ip-muted);
+  font-size: 0.78rem;
+}
+
+.expressionLegend > p {
+  margin: 0;
+  color: var(--ip-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1.2rem, 2.1vw, 2rem);
+}
+
+.bentoCard {
+  overflow: hidden;
+  min-width: 0;
+  border-radius: 1.2rem;
+  background: var(--ip-cream);
+  box-shadow: 0 14px 34px rgba(91, 47, 24, 0.05);
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease;
+}
+
+.bentoCopy {
+  padding: clamp(1rem, 2vw, 1.7rem);
+}
+
+.bentoCopy h3 {
+  max-width: 15ch;
+  margin: 0.7rem 0 0;
+  font-size: clamp(1.15rem, 1.9vw, 1.8rem);
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+}
+
+.bentoSmall .bentoCopy h3 {
+  max-width: none;
+  font-size: clamp(1.25rem, 2.1vw, 2rem);
+  line-height: 1.22;
+  text-wrap: balance;
+}
+
+.bentoCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bentoLarge {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 0.68fr);
+  grid-column: 1 / -1;
+  align-items: center;
+}
+
+.bentoLarge .bentoCopy {
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.bentoLarge img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.campaignCard img {
+  max-height: none;
+  object-fit: contain;
+}
+
+.bentoSmall {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 0.68fr);
+  grid-column: 1 / -1;
+  align-items: center;
+}
+
+.bentoSmall .bentoCopy {
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.bentoSmall img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+}
+
+.experienceConclusion {
+  border-bottom: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bentoCard:hover {
+    box-shadow: 0 22px 48px rgba(91, 47, 24, 0.12);
+    transform: translateY(-3px) scale(1.004);
+  }
+}
+
+@media (max-width: 860px) {
+  .profileGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profileAside {
+    grid-column: 1 / -1;
+  }
+
+  .expressionLegend {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .expressionLegend > p {
+    grid-column: 1 / -1;
+  }
+
+  .bentoSmall {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .moduleIntro,
+  .moduleQuote,
+  .experienceConclusion {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .profileGrid,
+  .ruleGrid,
+  .expressionLegend {
+    grid-template-columns: 1fr;
+  }
+
+  .profileAside {
+    grid-column: auto;
+  }
+
+  .expressionLegend > p {
+    grid-column: auto;
+  }
+
+  .bentoLarge,
+  .bentoSmall {
+    grid-column: 1 / -1;
+  }
+
+  .bentoLarge {
+    grid-template-columns: 1fr;
+  }
+
+  .bentoSmall {
+    grid-template-columns: 1fr;
+  }
+
+  .characterCard figcaption,
+  .systemWide figcaption,
+  .stickerWide figcaption {
+    padding: 0.7rem 0.85rem 0.9rem;
+  }
+}

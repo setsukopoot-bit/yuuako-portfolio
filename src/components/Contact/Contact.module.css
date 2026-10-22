@@ -1,0 +1,757 @@
+.contact {
+  --space-ink: #f2f5ff;
+  --space-ink-soft: rgba(224, 232, 250, 0.72);
+  --space-ink-muted: rgba(190, 205, 235, 0.45);
+  --space-signal: #9fd4ff;
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--space-ink);
+  background:
+    radial-gradient(ellipse at 72% 43%, rgba(87, 72, 216, 0.17), transparent 36%),
+    radial-gradient(ellipse at 24% 72%, rgba(35, 103, 185, 0.12), transparent 35%),
+    linear-gradient(138deg, #050711 0%, #070a19 48%, #090d23 100%);
+  scroll-margin-top: 0;
+}
+
+.contact::before,
+.contact::after,
+.deepSpace,
+.particleField,
+.dataStreams {
+  position: absolute;
+  pointer-events: none;
+}
+
+.contact::before {
+  z-index: 0;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(157, 190, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 190, 255, 0.1) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 67% 48%, #000 0%, transparent 70%);
+  content: '';
+}
+
+.contact::after {
+  z-index: 0;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 17, 0.12), rgba(5, 7, 17, 0.42)),
+    radial-gradient(circle at center, transparent 42%, rgba(3, 5, 13, 0.38) 100%);
+  content: '';
+}
+
+.deepSpace {
+  z-index: 0;
+  top: -44%;
+  right: -12%;
+  width: min(92vw, 1320px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(109, 115, 255, 0.2) 0%, rgba(62, 73, 187, 0.07) 42%, transparent 71%);
+  filter: blur(28px);
+  animation: ambientBreath 8s ease-in-out infinite;
+}
+
+.particleField {
+  z-index: 1;
+  inset: 0;
+}
+
+.particleField::before,
+.particleField::after {
+  position: absolute;
+  inset: 0;
+  opacity: 0.42;
+  background-image:
+    radial-gradient(circle, rgba(224, 238, 255, 0.84) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(134, 174, 255, 0.68) 0 0.8px, transparent 1.4px);
+  background-position: 24px 38px, 117px 86px;
+  background-size: 217px 217px, 331px 331px;
+  content: '';
+}
+
+.particleField::after {
+  opacity: 0.22;
+  background-position: 81px 140px, 42px 18px;
+  background-size: 287px 287px, 419px 419px;
+}
+
+.particleField > span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #d9ecff;
+  box-shadow: 0 0 12px rgba(132, 181, 255, 0.95);
+  animation: particleDrift 7s ease-in-out infinite alternate;
+}
+
+.particleField > span:nth-child(1) { top: 18%; left: 13%; animation-delay: -1s; }
+.particleField > span:nth-child(2) { top: 28%; left: 42%; animation-delay: -4s; }
+.particleField > span:nth-child(3) { top: 15%; left: 77%; animation-delay: -2s; }
+.particleField > span:nth-child(4) { top: 38%; left: 88%; animation-delay: -6s; }
+.particleField > span:nth-child(5) { top: 49%; left: 9%; animation-delay: -3s; }
+.particleField > span:nth-child(6) { top: 58%; left: 34%; animation-delay: -5s; }
+.particleField > span:nth-child(7) { top: 71%; left: 82%; animation-delay: -1.5s; }
+.particleField > span:nth-child(8) { top: 84%; left: 57%; animation-delay: -4.5s; }
+.particleField > span:nth-child(9) { top: 78%; left: 18%; animation-delay: -2.5s; }
+.particleField > span:nth-child(10) { top: 31%; left: 64%; animation-delay: -5.5s; }
+.particleField > span:nth-child(11) { top: 66%; left: 69%; animation-delay: -3.5s; }
+.particleField > span:nth-child(12) { top: 88%; left: 92%; animation-delay: -6.5s; }
+
+.dataStreams {
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.dataStreams path {
+  fill: none;
+  stroke: rgba(132, 176, 255, 0.17);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-dasharray: 5 15;
+  animation: signalFlow 18s linear infinite;
+}
+
+.dataStreams path:nth-child(2) {
+  stroke: rgba(155, 125, 255, 0.13);
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+
+.dataStreams path:nth-child(3) {
+  stroke-dasharray: 2 18;
+  animation-duration: 30s;
+}
+
+.contactInner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1600px);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: clamp(6rem, 10vh, 8rem) clamp(1.5rem, 5vw, 5.5rem) clamp(1.5rem, 4vh, 3rem);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(179, 205, 255, 0.09);
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: var(--space-ink-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  padding: 0 2px;
+  border: 0;
+  color: var(--space-ink-soft);
+  background: transparent;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: color 180ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backToTop span {
+  color: var(--space-signal);
+  font-size: 0.9rem;
+  transition: translate 180ms ease;
+}
+
+.backToTop:focus-visible {
+  outline: 2px solid var(--space-signal);
+  outline-offset: 4px;
+}
+
+.contactStage {
+  position: relative;
+  min-height: calc(100svh - clamp(9rem, 15vh, 12rem));
+}
+
+.titleBlock {
+  position: absolute;
+  z-index: 5;
+  top: 42%;
+  left: 50%;
+  width: min(78vw, 1040px);
+  text-align: center;
+  translate: -50% -50%;
+}
+
+.titleKicker {
+  margin: 0 0 clamp(1rem, 2.5vh, 1.75rem);
+  color: rgba(159, 212, 255, 0.66);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+}
+
+.titleBlock h2 {
+  margin: 0;
+  color: var(--space-ink);
+  font-family: Georgia, 'Times New Roman', 'Songti SC', 'STSong', serif;
+  font-size: clamp(4rem, 7vw, 8.3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+  text-shadow: 0 0 38px rgba(104, 126, 224, 0.12);
+}
+
+.titleDescription {
+  margin: clamp(1.5rem, 3vh, 2.25rem) auto 0;
+  color: var(--space-ink-soft);
+  font-size: clamp(0.84rem, 1vw, 1rem);
+  line-height: 1.95;
+}
+
+.aiCore {
+  position: absolute;
+  z-index: 2;
+  top: 44%;
+  left: 67%;
+  width: clamp(300px, 36vw, 560px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+
+.coreHalo,
+.coreSphere,
+.orbit {
+  position: absolute;
+  inset: 50%;
+  border-radius: 50%;
+}
+
+.coreHalo {
+  width: 68%;
+  height: 68%;
+  background: radial-gradient(circle, rgba(119, 126, 255, 0.24), rgba(70, 80, 210, 0.08) 44%, transparent 72%);
+  filter: blur(16px);
+  transform: translate(-50%, -50%);
+  animation: coreBreathe 5.5s ease-in-out infinite;
+}
+
+.coreSphere {
+  width: 38%;
+  height: 38%;
+  border: 1px solid rgba(174, 203, 255, 0.17);
+  background:
+    radial-gradient(circle at 36% 31%, rgba(233, 243, 255, 0.66), transparent 5%),
+    radial-gradient(circle at 44% 42%, rgba(137, 155, 255, 0.38), rgba(65, 46, 164, 0.24) 51%, rgba(11, 15, 42, 0.16) 72%);
+  box-shadow: 0 0 62px rgba(90, 103, 243, 0.26), inset -20px -18px 42px rgba(2, 5, 20, 0.48);
+  transform: translate(-50%, -50%);
+}
+
+.coreSphere span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d6edff;
+  box-shadow: 0 0 10px #91bdff;
+}
+
+.coreSphere span:nth-child(1) { top: 24%; left: 72%; }
+.coreSphere span:nth-child(2) { top: 66%; left: 22%; }
+.coreSphere span:nth-child(3) { top: 73%; left: 78%; }
+
+.orbit {
+  border: 1px solid rgba(155, 190, 255, 0.16);
+  transform-origin: center;
+}
+
+.orbit i {
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cbe8ff;
+  box-shadow: 0 0 12px rgba(143, 190, 255, 0.95);
+}
+
+.orbitOne {
+  width: 64%;
+  height: 31%;
+  transform: translate(-50%, -50%) rotate(18deg);
+  animation: orbitOne 20s linear infinite;
+}
+
+.orbitTwo {
+  width: 72%;
+  height: 46%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  animation: orbitTwo 27s linear infinite reverse;
+}
+
+.orbitThree {
+  width: 49%;
+  height: 76%;
+  transform: translate(-50%, -50%) rotate(52deg);
+  animation: orbitThree 32s linear infinite;
+}
+
+.capabilityCloud {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(226, 234, 250, 0.72);
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(118, 160, 255, 0.22);
+  animation: labelFloat 5.8s ease-in-out infinite;
+}
+
+.capability > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--space-signal);
+  box-shadow: 0 0 10px rgba(121, 180, 255, 0.9);
+}
+
+.capability:nth-child(1) { top: 18%; left: 10%; animation-delay: -1s; }
+.capability:nth-child(2) { top: 16%; right: 9%; animation-delay: -3.8s; }
+.capability:nth-child(3) { right: 5%; bottom: 25%; animation-delay: -2.3s; }
+.capability:nth-child(4) { top: 47%; left: 5%; animation-delay: -4.6s; }
+
+.identity {
+  position: absolute;
+  z-index: 7;
+  bottom: 8%;
+  left: 0;
+  width: min(360px, 31vw);
+}
+
+.role {
+  margin: 0;
+  color: rgba(244, 247, 255, 0.92);
+  font-size: clamp(1.38rem, 1.8vw, 1.6rem);
+  font-weight: 550;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 24px rgba(116, 163, 255, 0.12);
+}
+
+.disciplines {
+  margin: 0.65rem 0 0;
+  color: #9fc6ff;
+  font-size: clamp(0.82rem, 1vw, 0.94rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.contactDetails {
+  position: absolute;
+  z-index: 7;
+  right: 0;
+  bottom: 1%;
+  width: min(290px, 25vw);
+}
+
+.contactHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(171, 201, 255, 0.13);
+}
+
+.contactHeading::before {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--space-signal);
+  box-shadow: 0 0 12px rgba(121, 180, 255, 0.82);
+  content: '';
+}
+
+.contactHeading span {
+  color: rgba(240, 245, 255, 0.9);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.contactHeading small {
+  color: rgba(159, 212, 255, 0.5);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.contactBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+}
+
+.contactList {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.contactList div {
+  min-width: 0;
+}
+
+.contactList dt {
+  margin: 0 0 0.22rem;
+  color: rgba(190, 205, 235, 0.46);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.contactList dd {
+  margin: 0;
+  color: rgba(241, 245, 255, 0.88);
+  font-size: clamp(0.76rem, 0.95vw, 0.9rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+.contactList a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.contactList a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--space-signal);
+  outline-offset: 4px;
+}
+
+.qrFigure {
+  margin: 0;
+  text-align: center;
+  translate: 26px 0;
+}
+
+.qrFrame {
+  position: relative;
+  width: clamp(110px, 9.5vw, 136px);
+  aspect-ratio: 1;
+  padding: clamp(8px, 0.7vw, 10px);
+}
+
+.qrFrame img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.12);
+  transform-origin: center;
+}
+
+.qrPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: #586177;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.qrFigure figcaption {
+  margin-top: 0.55rem;
+  color: rgba(190, 205, 235, 0.45);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+}
+
+.reveal {
+  will-change: transform, opacity;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTop:hover {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .backToTop:hover span {
+    translate: 0 -3px;
+  }
+
+  .capability {
+    transition: color 180ms ease, text-shadow 180ms ease;
+  }
+
+  .capability:hover {
+    color: #fff;
+    text-shadow: 0 0 24px rgba(132, 184, 255, 0.58);
+  }
+
+  .contactList a:hover {
+    color: #fff;
+    text-shadow: 0 0 18px rgba(132, 184, 255, 0.32);
+  }
+
+}
+
+@media (min-width: 901px) and (max-height: 820px) {
+  .contactInner {
+    padding-top: 4.5rem;
+  }
+
+  .contactStage {
+    min-height: 460px;
+  }
+
+  .titleBlock {
+    top: 40%;
+  }
+
+  .titleBlock h2 {
+    font-size: clamp(4rem, 6.5vw, 6.8rem);
+  }
+
+  .titleDescription {
+    margin-top: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .aiCore {
+    top: 45%;
+    width: clamp(300px, 32vw, 460px);
+  }
+
+  .identity {
+    bottom: 4%;
+  }
+
+  .contactDetails {
+    bottom: -3%;
+  }
+}
+
+@media (max-width: 900px) {
+  .titleBlock {
+    top: 36%;
+    width: min(88vw, 760px);
+  }
+
+  .titleBlock h2 {
+    font-size: clamp(3.5rem, 9vw, 6rem);
+  }
+
+  .aiCore {
+    top: 43%;
+    left: 66%;
+    width: clamp(320px, 56vw, 480px);
+  }
+
+  .capability:nth-child(1) { left: 2%; }
+  .capability:nth-child(2) { right: 2%; }
+  .capability:nth-child(3) { right: 2%; bottom: 27%; }
+  .capability:nth-child(4) { top: 49%; left: 2%; }
+
+  .identity {
+    width: 260px;
+  }
+
+  .contactDetails {
+    width: min(290px, 32vw);
+  }
+}
+
+@media (max-width: 620px) {
+  .contactInner {
+    padding: 6.5rem 1rem 2rem;
+  }
+
+  .contactStage {
+    min-height: 820px;
+  }
+
+  .titleBlock {
+    top: 20%;
+    width: 100%;
+  }
+
+  .titleKicker {
+    margin-bottom: 0.9rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.24em;
+  }
+
+  .titleBlock h2 {
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .titleDescription {
+    margin-top: 1.1rem;
+    font-size: 0.78rem;
+    line-height: 1.8;
+  }
+
+  .titleDescription br {
+    display: none;
+  }
+
+  .aiCore {
+    top: 51%;
+    left: 62%;
+    width: min(94vw, 370px);
+  }
+
+  .capability {
+    font-size: 0.7rem;
+  }
+
+  .capability:nth-child(1) { top: 38%; left: 0; }
+  .capability:nth-child(2) { top: 42%; right: 0; }
+  .capability:nth-child(3) { top: 61%; right: 1%; bottom: auto; }
+  .capability:nth-child(4) { top: 67%; right: auto; bottom: auto; left: 3%; }
+
+  .identity {
+    bottom: 13.5rem;
+    width: min(100%, 290px);
+  }
+
+  .role {
+    font-size: 1.35rem;
+  }
+
+  .disciplines {
+    font-size: 0.78rem;
+  }
+
+  .contactDetails {
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .contactBody {
+    gap: 1rem;
+  }
+
+  .contactList {
+    gap: 0.8rem;
+  }
+
+  .qrFrame {
+    width: 110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .deepSpace,
+  .particleField > span,
+  .dataStreams path,
+  .coreHalo,
+  .orbit,
+  .capability {
+    animation: none !important;
+  }
+
+  .backToTop,
+  .backToTop span,
+  .capability,
+  .contactList a {
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (forced-colors: active) {
+  .backToTop {
+    border: 1px solid ButtonText;
+  }
+
+  .capability > span,
+  .coreSphere {
+    border: 1px solid CanvasText;
+  }
+}
+
+@keyframes ambientBreath {
+  0%, 100% { opacity: 0.72; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes particleDrift {
+  from { opacity: 0.28; transform: translate3d(0, 0, 0) scale(0.8); }
+  to { opacity: 0.9; transform: translate3d(8px, -12px, 0) scale(1.15); }
+}
+
+@keyframes signalFlow {
+  to { stroke-dashoffset: -80; }
+}
+
+@keyframes coreBreathe {
+  0%, 100% { opacity: 0.68; transform: translate(-50%, -50%) scale(0.94); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+}
+
+@keyframes orbitOne {
+  to { transform: translate(-50%, -50%) rotate(378deg); }
+}
+
+@keyframes orbitTwo {
+  to { transform: translate(-50%, -50%) rotate(332deg); }
+}
+
+@keyframes orbitThree {
+  to { transform: translate(-50%, -50%) rotate(412deg); }
+}
+
+@keyframes labelFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}

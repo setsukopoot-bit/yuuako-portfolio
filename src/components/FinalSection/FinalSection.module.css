@@ -1,0 +1,579 @@
+.finalSection {
+  --space-ink: #03050d;
+  --star-white: #eef4ff;
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--star-white);
+  background: var(--space-ink);
+  scroll-margin-top: 96px;
+}
+
+.spaceBackground,
+.starField,
+.atmosphereLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spaceBackground {
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 76% 44%, rgba(89, 111, 255, 0.24) 0%, rgba(44, 61, 146, 0.1) 31%, transparent 58%),
+    radial-gradient(circle at 91% 78%, rgba(131, 76, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 9% 19%, rgba(38, 113, 181, 0.13), transparent 29%),
+    linear-gradient(117deg, #03050d 0%, #070b19 43%, #090f25 72%, #050711 100%);
+}
+
+.spaceBackground::before,
+.spaceBackground::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+}
+
+.spaceBackground::before {
+  opacity: 0.28;
+  background:
+    linear-gradient(112deg, transparent 28%, rgba(111, 160, 255, 0.08) 49%, transparent 61%),
+    conic-gradient(from 214deg at 78% 44%, transparent 0deg, rgba(100, 132, 255, 0.08) 11deg, transparent 26deg 360deg);
+  filter: blur(1px);
+}
+
+.spaceBackground::after {
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(156, 187, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(156, 187, 255, 0.14) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 78% 47%, #000 0%, transparent 70%);
+}
+
+.starField {
+  z-index: 1;
+  opacity: 0.67;
+  background-image:
+    radial-gradient(circle, rgba(235, 243, 255, 0.92) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(152, 187, 255, 0.72) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.38) 0 0.8px, transparent 1.2px),
+    radial-gradient(circle, rgba(146, 123, 255, 0.62) 0 0.9px, transparent 1.4px);
+  background-position: 20px 30px, 115px 86px, 52px 142px, 5px 19px;
+  background-size: 168px 168px, 244px 244px, 116px 116px, 83px 83px;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.58), #000 48%, #000);
+}
+
+.atmosphereLayer {
+  z-index: 2;
+}
+
+.atmosphere {
+  transform-origin: 72% 48%;
+}
+
+.planetGlow {
+  position: absolute;
+  z-index: 0;
+  top: -7%;
+  right: -5%;
+  width: min(70vw, 1080px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(111, 128, 255, 0.3) 0%, rgba(67, 84, 201, 0.16) 38%, transparent 70%);
+  filter: blur(28px);
+}
+
+.planet {
+  position: absolute;
+  z-index: 1;
+  top: 4%;
+  right: 2%;
+  width: min(59vw, 920px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(197, 220, 255, 0.3);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 39% 32%, rgba(226, 236, 255, 0.42), transparent 12%),
+    radial-gradient(circle at 69% 62%, rgba(120, 82, 255, 0.48), transparent 29%),
+    radial-gradient(circle at 37% 70%, rgba(31, 122, 209, 0.34), transparent 34%),
+    radial-gradient(circle at 50% 50%, #2c5a9f 0%, #1c397c 37%, #141f53 68%, #090e25 100%);
+  box-shadow:
+    0 0 42px rgba(124, 155, 255, 0.44),
+    0 0 116px rgba(88, 99, 255, 0.34),
+    inset -86px -70px 132px rgba(2, 5, 21, 0.72),
+    inset 38px 28px 78px rgba(194, 221, 255, 0.18);
+}
+
+.planet::before,
+.planet::after {
+  position: absolute;
+  pointer-events: none;
+  content: '';
+}
+
+.planet::before {
+  inset: -12%;
+  border-radius: 50%;
+  opacity: 0.54;
+  background:
+    repeating-radial-gradient(ellipse at 46% 43%, transparent 0 23px, rgba(195, 217, 255, 0.075) 24px 25px, transparent 26px 41px),
+    conic-gradient(from 42deg at 48% 50%, transparent 0deg, rgba(190, 214, 255, 0.08) 12deg, transparent 28deg 67deg, rgba(101, 115, 255, 0.12) 82deg, transparent 101deg 360deg);
+  mix-blend-mode: screen;
+  transform: rotate(-11deg);
+}
+
+.planet::after {
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(118deg, rgba(218, 232, 255, 0.18), transparent 33%, transparent 62%, rgba(110, 83, 255, 0.12));
+  box-shadow: inset 18px 10px 36px rgba(211, 229, 255, 0.08);
+}
+
+.planetTexture,
+.planetMeridian {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.planetTexture {
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(208, 224, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(208, 224, 255, 0.16) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at 48% 48%, #000, transparent 78%);
+  transform: perspective(600px) rotateX(58deg) rotateZ(-8deg) scale(1.55);
+}
+
+.planetMeridian {
+  inset: 4%;
+  border: 1px solid rgba(156, 183, 255, 0.22);
+  box-shadow: 0 0 26px rgba(104, 133, 255, 0.2);
+  transform: rotate(-13deg) scaleY(0.48);
+}
+
+.moon,
+.glowOrb {
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.moon {
+  top: 8%;
+  right: 9%;
+  width: clamp(56px, 6.8vw, 108px);
+  aspect-ratio: 1;
+  opacity: 0.72;
+  background: radial-gradient(circle at 36% 32%, #aab7d8, #35446e 46%, #111932 73%);
+  box-shadow: -12px 15px 34px rgba(1, 3, 12, 0.48), 0 0 24px rgba(116, 150, 232, 0.22);
+}
+
+.glowOrb {
+  right: 4.5%;
+  bottom: 16%;
+  width: clamp(34px, 3.2vw, 58px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(193, 199, 255, 0.6);
+  background: radial-gradient(circle at 35% 30%, #d9e2ff, #7b62ff 24%, rgba(72, 64, 177, 0.32) 62%, transparent 70%);
+  box-shadow: 0 0 28px rgba(117, 91, 255, 0.45);
+}
+
+.horizonGlow {
+  position: absolute;
+  z-index: 2;
+  right: -7%;
+  bottom: -15%;
+  width: min(76vw, 1120px);
+  height: 41%;
+  border-top: 1px solid rgba(154, 185, 255, 0.38);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(79, 105, 255, 0.2), transparent 66%);
+  box-shadow: 0 -12px 46px rgba(74, 93, 255, 0.13);
+  transform: rotate(-4deg);
+}
+
+.orbits {
+  position: absolute;
+  z-index: 3;
+  top: 3%;
+  right: -4%;
+  width: min(72vw, 1080px);
+  height: auto;
+  overflow: visible;
+}
+
+.orbitLines,
+.techArcs,
+.techTicks {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.orbitLines {
+  stroke: rgba(147, 174, 255, 0.42);
+  stroke-width: 1.15;
+  stroke-dasharray: 5 9;
+  animation: orbitFlow 18s linear infinite;
+}
+
+.techArcs {
+  stroke: rgba(177, 204, 255, 0.34);
+  stroke-width: 1.2;
+  stroke-dasharray: 46 18 7 16;
+}
+
+.techTicks {
+  stroke: rgba(174, 206, 255, 0.48);
+  stroke-width: 2;
+}
+
+.orbitNodes {
+  fill: #dbe7ff;
+  filter: drop-shadow(0 0 8px rgba(139, 164, 255, 0.9));
+}
+
+.inner {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  width: min(100%, 1720px);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: clamp(6.4rem, 10vh, 9rem) clamp(2rem, 5.2vw, 6rem) clamp(4.5rem, 7vh, 6rem);
+}
+
+.content {
+  position: relative;
+  z-index: 6;
+  align-self: center;
+  max-width: 620px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 clamp(2rem, 4vh, 3.5rem);
+  color: rgba(221, 231, 248, 0.68);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+}
+
+.eyebrow::before {
+  width: 48px;
+  height: 1px;
+  background: rgba(180, 209, 255, 0.74);
+  content: '';
+}
+
+.title {
+  margin: 0;
+  color: #f4f6ff;
+  font-family: Georgia, 'Times New Roman', 'Songti SC', 'STSong', serif;
+  font-size: clamp(3.8rem, 5.4vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+  text-shadow: 0 0 34px rgba(122, 126, 255, 0.16);
+}
+
+.subtitle {
+  margin: clamp(1.6rem, 3.2vh, 2.5rem) 0 0;
+  color: rgba(236, 241, 255, 0.86);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.description {
+  margin-top: clamp(1.8rem, 3.2vh, 2.8rem);
+  color: rgba(213, 222, 240, 0.64);
+  font-size: clamp(0.96rem, 1.12vw, 1.08rem);
+  line-height: 1.82;
+}
+
+.description p {
+  margin: 0;
+}
+
+.description p + p {
+  margin-top: 0.65rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(2.2rem, 4.2vh, 3.6rem);
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  min-height: 54px;
+  padding: 0.85rem 1.55rem;
+  border-radius: 999px;
+  color: #f1f5ff;
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 220ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.primaryAction {
+  min-width: 178px;
+  border: 1px solid rgba(147, 205, 255, 0.72);
+  background: rgba(54, 73, 141, 0.16);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 0 24px rgba(104, 117, 255, 0.09);
+}
+
+.secondaryAction {
+  min-width: 166px;
+  border: 1px solid rgba(205, 218, 242, 0.26);
+  background: rgba(10, 14, 28, 0.24);
+}
+
+.actionIcon {
+  color: #a8d8ff;
+  font-size: 1rem;
+  transition: translate 180ms ease;
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  outline: 2px solid #9bdced;
+  outline-offset: 4px;
+}
+
+.characterStage {
+  position: absolute;
+  z-index: 7;
+  top: clamp(4.5rem, 8vh, 6.5rem);
+  right: clamp(0rem, 1.8vw, 2rem);
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: min(60vw, 1000px);
+  pointer-events: none;
+}
+
+.characterHalo {
+  position: absolute;
+  top: 46%;
+  left: 55%;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(162, 158, 255, 0.24), rgba(87, 112, 221, 0.08) 46%, transparent 72%);
+  filter: blur(18px);
+}
+
+.character {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  height: min(90svh, 94%);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(-22px 28px 42px rgba(0, 0, 0, 0.46)) drop-shadow(0 0 18px rgba(117, 131, 255, 0.13));
+  transform-origin: center bottom;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryAction:hover,
+  .secondaryAction:hover {
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .primaryAction:hover {
+    border-color: rgba(181, 226, 255, 0.96);
+    background: rgba(72, 89, 166, 0.25);
+  }
+
+  .secondaryAction:hover {
+    border-color: rgba(211, 225, 247, 0.5);
+    background: rgba(31, 40, 72, 0.34);
+  }
+
+  .primaryAction:hover .actionIcon {
+    translate: 4px 0;
+  }
+
+  .secondaryAction:hover .actionIcon {
+    translate: 0 -3px;
+  }
+}
+
+@media (max-width: 900px) {
+  .inner {
+    display: block;
+    min-height: 1080px;
+    padding: 7rem clamp(1.5rem, 6vw, 3.25rem) 33rem;
+  }
+
+  .content {
+    max-width: 38rem;
+  }
+
+  .title {
+    font-size: clamp(3.5rem, 11vw, 6rem);
+    white-space: normal;
+  }
+
+  .characterStage {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    width: 100%;
+    height: 52%;
+  }
+
+  .character {
+    height: 96%;
+    max-width: 94vw;
+    object-position: center bottom;
+  }
+
+  .planetGlow {
+    top: auto;
+    right: -26%;
+    bottom: -14%;
+    width: 126vw;
+  }
+
+  .planet {
+    top: auto;
+    right: -12%;
+    bottom: -2%;
+    width: 92vw;
+  }
+
+  .orbits {
+    top: auto;
+    right: -29%;
+    bottom: 0;
+    width: 132vw;
+  }
+
+  .horizonGlow {
+    right: -24%;
+    width: 138vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .inner {
+    min-height: 1040px;
+    padding: 6.5rem 1.1rem 30rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1.8rem;
+    font-size: 0.68rem;
+  }
+
+  .title {
+    max-width: 6em;
+    font-size: clamp(3rem, 15vw, 4.2rem);
+  }
+
+  .subtitle {
+    margin-top: 1.3rem;
+    font-size: 1.18rem;
+  }
+
+  .description {
+    margin-top: 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    gap: 0.75rem;
+    margin-top: 1.8rem;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    min-width: 0;
+    min-height: 48px;
+    padding-inline: 1.1rem;
+    font-size: 0.7rem;
+  }
+
+  .characterStage {
+    right: 0;
+    width: 100%;
+    height: 48%;
+  }
+
+  .character {
+    height: 94%;
+    max-width: 96vw;
+  }
+
+  .moon {
+    top: auto;
+    right: 8%;
+    bottom: 34%;
+  }
+
+  .glowOrb {
+    right: 6%;
+    bottom: 12%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .character,
+  .atmosphere {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .primaryAction,
+  .secondaryAction,
+  .actionIcon {
+    transition-duration: 0.01ms;
+  }
+
+  .orbitLines {
+    animation: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .primaryAction,
+  .secondaryAction {
+    border: 1px solid ButtonText;
+  }
+}
+
+@keyframes orbitFlow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
