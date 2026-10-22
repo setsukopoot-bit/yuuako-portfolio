@@ -50,8 +50,16 @@
         }
       }
     </style>
+  </head>
+  <body>
+    <a class="portfolio-return" href="/#projects" aria-label="返回作品集精选项目">← 返回作品集</a>
+    <div id="root"></div>
+    <noscript>请启用 JavaScript 以查看完整作品集详情页。</noscript>
     <script>
       (() => {
+        const root = document.getElementById('root')
+        if (!root) return
+
         const localizeImage = (image) => {
           const source = image.getAttribute('src')
           if (source && source.startsWith('/')) image.setAttribute('src', `./public${source}`)
@@ -67,14 +75,9 @@
           }
         })
 
-        observer.observe(document.documentElement, { childList: true, subtree: true })
+        observer.observe(root, { childList: true, subtree: true })
       })()
     </script>
-  </head>
-  <body>
-    <a class="portfolio-return" href="/#projects" aria-label="返回作品集精选项目">← 返回作品集</a>
-    <div id="root"></div>
-    <noscript>请启用 JavaScript 以查看完整作品集详情页。</noscript>
     <script src="./dist/assets/index-CiALjClm.js"></script>
   </body>
 </html>
